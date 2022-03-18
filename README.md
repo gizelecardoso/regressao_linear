@@ -26,13 +26,13 @@ Essa equação é para Regressão Linear Múltipla, onde tentamos prever **y** e
 
 Dentro da equação temos algumas informações importantes:
 
-* **Alfa** -> é chamado de **intercepto**, é o ponto que cruza o eixo y na reta, se não tiver nenhuma váriavel preditora o valor de **y** é o intercepto (talvez eu diria que é o valor padrão).
+* **Alfa** -> é chamado de **intercepto**, é o ponto que a reta cruza o eixo y, se não tiver nenhuma váriavel explicativa o valor de **y** é o intercepto (talvez eu diria que é o valor padrão).
 
 * **Beta** -> é chamado de **coeficiente de inclinação da reta**.
 
 * **x** ->  já mencionado anteriormente são as **variáveis explicativas**.
 
-* **u** -> é o termo de erro da equação. A ideia dele é que nossa reta da equação não conseguirá captar todos os pontos das observações, essa diferença do ponto e a reta é agregada nessa variável.
+* **u** -> é o termo de erro da equação. A ideia dele é que nossa reta da equação, não conseguirá captar todos os pontos das observações, essa diferença do ponto e a reta é agregada nessa variável.
 
 Com essa definição do erro, temos
 
@@ -61,7 +61,7 @@ ___
 - **O** Ordinarios
 ___
 
-Tentando responder quais valores de alfa e beta minimizam o erro ao quadrado e garantem o erro igual a zero.
+Tentando responder quais valores de alfa e beta minimizam a somatória de erros ao quadrado e garantem a somatória de erro igual a zero.
 
 ### Análises
 
@@ -70,23 +70,23 @@ Após rodarmos o modelo alguns outputs são usados para validar o quão bom o mo
 1. Coeficiente de Determinação (R²)
 
 Esse coeficiente indica quanto do comportamento da variavel y é explicado pelas variáveis x. Com isso quanto maior o R² melhor será o modelo.
-Coeficiente varia de 0 - 1.
+Esse coeficiente varia entre 0 - 1.
 
 2. Testes Estatísticos
 
     * Significância Estatística do Modelo - TESTE F de Snedecor
         <p> Objetivo desse teste é avaliar a significância estatística conjunta dos parâmetros, validando se pelo menos um dos betas é estatísticamente significante para explicar o comportamento de y.</p>
-        <p> Nesse teste importante o DF (Degrees of Freedom) - (Graus de Liberdade), calculado pela diferença de quantidade de observaçoes (N) menos quantidade de parâmetros (k -> alfa e betas)</p>
+        <p> Nesse teste é importante calcular o DF (Degrees of Freedom) - (Graus de Liberdade), que é a diferença da quantidade de observaçoes (N) menos a quantidade de parâmetros (k -> alfa e betas)</p>
 
         ![Grafico do Teste f](https://e7.pngegg.com/pngimages/830/362/png-clipart-f-distribution-f-test-percentile-statistics-test-statistic-others.png)
 
-        Conforme o gráfico calcular o valor de modo,
-        que F_calculado seja > F_critico ou p-valor < 0,05
+        Conforme o gráfico, a ideia é calcular o valor de modo
+        que, F_calculado seja > F_critico ou p-valor < 0,05
 
-        Nesse caso reijeitamos H0 (hipótese nula) de que não f estatísticamente diferente de zero a 95% de confiança.
+        Nesse caso rejeitamos H0 (hipótese nula) de que f não é estatísticamente diferente de zero a 95% de confiança.
 
         Ou seja, existe um beta estatisticamente significante.
-        Se p-valor >= 0.05, não haveria modelo, pois nenhuma variável é estatisticamente significante para explicar o valor da variavel y.
+        Se p-valor >= 0.05, não haveria modelo, pois nenhuma variável seria estatisticamente significante para explicar o valor da variavel y.
 
 
     * Significância Estatística do Modelo - TESTE t de Student
@@ -96,12 +96,11 @@ Coeficiente varia de 0 - 1.
         ![Grafico do Teste t](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Teste_T_Gr%C3%A1fico_bicaudal_v2.png/300px-Teste_T_Gr%C3%A1fico_bicaudal_v2.png)
 
         Conforme o gráfico calcular o valor de modo,
-        que F_calculado seja > F_critico ou p-valor < 0,025 (positivo e negativo)
+        que T_calculado seja > T_critico ou p-valor < 0,025 (positivo e negativo)
 
-        Nesse caso reijeitamos H0 (hipótese nula) de que não f estatísticamente diferente de zero a 95% de confiança.
+        Nesse caso reijeitamos H0 (hipótese nula) de que t não é estatísticamente diferente de zero a 95% de confiança.
 
-        Ou seja, existe um beta estatisticamente significante.
-        Se p-valor >= 0.05, não haveria modelo, pois nenhuma variável é estatisticamente significante para explicar o valor da variavel y.
+        Ou seja, o beta em questão é estatisticamente significante.
 
 
 
